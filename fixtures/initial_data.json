@@ -1,0 +1,130 @@
+[
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "localhost:8000", 
+            "name": "DCA PTO Membership [localhost]"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "example.com", 
+            "name": "DCA PTO Membership"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "PK", 
+            "label": "Pre-K"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "K5", 
+            "label": "K5"
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "1", 
+            "label": "1st"
+        }
+    },
+    {
+        "pk": 4, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "2", 
+            "label": "2nd"
+        }
+    },
+    {
+        "pk": 5, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "3", 
+            "label": "3rd"
+        }
+    },
+    {
+        "pk": 6, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "4", 
+            "label": "4th"
+        }
+    },
+    {
+        "pk": 7, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "5", 
+            "label": "5th"
+        }
+    },
+    {
+        "pk": 8, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "6", 
+            "label": "6th"
+        }
+    },
+    {
+        "pk": 9, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "7", 
+            "label": "7th"
+        }
+    },
+    {
+        "pk": 10, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "8", 
+            "label": "8th"
+        }
+    },
+    {
+        "pk": 11, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "9", 
+            "label": "9th"
+        }
+    },
+    {
+        "pk": 12, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "10", 
+            "label": "10th"
+        }
+    },
+    {
+        "pk": 13, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "11", 
+            "label": "11th"
+        }
+    },
+    {
+        "pk": 14, 
+        "model": "pto.grade", 
+        "fields": {
+            "grade": "12", 
+            "label": "12th"
+        }
+    }
+]
