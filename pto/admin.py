@@ -3,6 +3,8 @@ from django.contrib import admin
 from .models import Grade, Teacher, Student, Contact, SchoolYear, Membership, Family
 
 
+# @@@ Disable admin for user and other non-app models so as to prevent user errors
+
 admin.site.register(
     Family,
     list_display=["user", "name"]
