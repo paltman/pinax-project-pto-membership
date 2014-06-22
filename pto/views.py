@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView
 
 from .forms import ContactForm, StudentForm
 from .models import Contact, Student
@@ -13,8 +13,11 @@ class ContactsView(ListView):
         return self.request.user.family.contacts.all().order_by("pk")
 
 
-class StudentsView(TemplateView):
-    template_name = "account/students.html"
+class StudentsView(ListView):
+    model = Student
+
+    def get_queryset(self):
+        return self.request.user.family.students.all().order_by("pk")
 
 
 class ContactCreateView(CreateView):
@@ -50,4 +53,6 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     form_class = StudentForm
     model = Student
-    success_url = "students"
+
+    def get_success_url(self):
+        return reverse("students")
