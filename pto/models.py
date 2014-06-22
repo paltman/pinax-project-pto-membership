@@ -4,8 +4,12 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 
+from localflavor.us import models as us
+from localflavor.us.us_states import STATE_CHOICES as ORIGINAL_STATE_CHOICES
 
-## How do we support memberships for people that pay manually and do not use the online system
+
+STATE_CHOICES = [(x[0], x[0]) for x in ORIGINAL_STATE_CHOICES]
+
 
 class SchoolYear(models.Model):
 
@@ -93,9 +97,10 @@ class Contact(models.Model):
     address_1 = models.CharField(max_length=50, blank=True)
     address_2 = models.CharField(max_length=50, blank=True)
     city = models.CharField(max_length=50, blank=True)
-    zip_code = models.CharField(max_length=10, blank=True)
-    cell_phone = models.CharField(max_length=20, blank=True)
-    home_phone = models.CharField(max_length=20, blank=True)
+    state = models.CharField(max_length=2, default="TN", choices=STATE_CHOICES)
+    zip_code = models.CharField(max_length=50, blank=True)
+    cell_phone = us.PhoneNumberField(blank=True)
+    home_phone = us.PhoneNumberField(blank=True)
 
     def __unicode__(self):
         return "{0}, {1}".format(self.last_name, self.first_name)
