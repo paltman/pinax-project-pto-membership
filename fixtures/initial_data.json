@@ -126,5 +126,41 @@
             "grade": "12", 
             "label": "12th"
         }
+    },
+    {
+        "pk": 1, 
+        "model": "pto.schoolyear", 
+        "fields": {
+            "active": false, 
+            "dues": "20", 
+            "year": "2011/2012"
+        }
+    },
+    {
+        "pk": 2, 
+        "model": "pto.schoolyear", 
+        "fields": {
+            "active": false, 
+            "dues": "20", 
+            "year": "2012/2013"
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "pto.schoolyear", 
+        "fields": {
+            "active": false, 
+            "dues": "20", 
+            "year": "2013/2014"
+        }
+    },
+    {
+        "pk": 4, 
+        "model": "pto.schoolyear", 
+        "fields": {
+            "active": true, 
+            "dues": "50", 
+            "year": "2014/2015"
+        }
     }
 ]
