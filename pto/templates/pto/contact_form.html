@@ -1,0 +1,60 @@
+{% extends "pto/base.html" %}
+
+{% load bootstrap %}
+
+{% block body_class %}pto membership-contacts{% endblock %}
+
+{% block head_title %}Manage Contacts{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-5 form-container">
+            {% if object %}
+                {% url "contact_edit" object.pk as post_url %}
+            {% else %}
+                {% url "contact_add" as post_url %}
+            {% endif %}
+            <form class="form contact-form" method="POST" action="{{ post_url }}">
+                {% csrf_token %}
+                <legend>{% if object %}Edit Contact{% else %}Add Contact{% endif %}</legend>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.first_name|bootstrap }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.last_name|bootstrap }}
+                    </div>
+                </div>
+                {{ form.address_1|bootstrap }}
+                {{ form.address_2|bootstrap }}
+                <div class="row">
+                    <div class="col-md-5">
+                        {{ form.city|bootstrap }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.state|bootstrap }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.zip_code|bootstrap }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form.cell_phone|bootstrap }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.home_phone|bootstrap }}
+                    </div>
+                </div>
+                {{ form.email|bootstrap }}
+                <div class="pull-right">
+                    <a href="{% url "contacts" %}" class="btn btn-sm btn-default">Cancel</a>
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        {% if object %}Save{% else %}Add{% endif %}
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

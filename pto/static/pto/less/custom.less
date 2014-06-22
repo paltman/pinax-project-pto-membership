@@ -1,3 +1,41 @@
 body {
-    padding-top: 0px;
+    padding-top: 51px;
+}
+
+body.account,
+body.pto {
+    padding-top: 71px;
+}
+
+h2.legend {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: normal;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#content_body {
+    padding-top: 20px;
+}
+
+body.account-settings .account-settings,
+body.account-password .account-password,
+body.account-delete .account-delete,
+body.membership-students .membership-students,
+body.membership-contacts .membership-contacts {
+    z-index: 2; // Place active items above their siblings for proper border styling
+    color: @list-group-active-color;
+    background-color: @list-group-active-bg;
+    border-color: @list-group-active-border;
+}
+
+.contact-form {
+    label {
+        display: none;
+    }
 }
