@@ -17,6 +17,10 @@ class SchoolYear(models.Model):
     dues = models.DecimalField(max_digits=5, decimal_places=2)
     active = models.BooleanField(default=True)
 
+    @property
+    def amount(self):
+        return int(self.dues * 100)
+
     def __unicode__(self):
         return "{2}{0} (${1})".format(self.year, self.dues, "* " if self.active else "")
 
@@ -54,6 +58,7 @@ class Membership(models.Model):
 
     family = models.ForeignKey(Family, related_name="memberships")
     school_year = models.ForeignKey(SchoolYear, related_name="memberships")
+    charge_id = models.CharField(max_length=150)
     paid_at = models.DateTimeField(default=timezone.now)
 
     class Meta:

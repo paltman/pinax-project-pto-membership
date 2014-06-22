@@ -1,0 +1,67 @@
+{% extends "pto/base.html" %}
+
+{% load pto_tags %}
+
+{% block body_class %}pto membership-memberships{% endblock %}
+
+{% block head_title %}Memberships{% endblock %}
+
+{% block body %}
+    <h2 class="legend">Current Membership</h2>
+    <table class="table memberships">
+        <thead>
+            <tr>
+                <th>School Year</th>
+                <th>Dues</th>
+                <th>Paid On</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ current_year.year }}</td>
+                <td>${{ current_year.dues|floatformat:"2" }}</td>
+                <td>
+                    {% paid_at current_year request.user as paid_date %}
+                    {% if paid_date %}
+                        {{ paid_date }}
+                    {% else %}
+                        <form action="{% url "memberships_charge" current_year.pk %}" method="POST">
+                            {% csrf_token %}
+                            <script
+                              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                              data-key="{{ STRIPE_PUBLIC_KEY }}"
+                              data-name="DCA PTO Membership"
+                              data-email="{{ request.user.email }}"
+                              data-description="Membership dues for {{ current_year.year }}"
+                              data-amount="{{ current_year.amount }}">
+                            </script>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="legend">Previous Memberships</h2>
+    <table class="table memberships">
+        <thead>
+            <tr>
+                <th>School Year</th>
+                <th>Dues</th>
+                <th>Paid On</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for year in object_list %}
+                {% paid_at year request.user as paid_date %}
+                <tr>
+                    <td>{{ year.year }}</td>
+                    <td>${{ year.dues|floatformat:"2" }}</td>
+                    <td>
+                        {{ paid_date }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

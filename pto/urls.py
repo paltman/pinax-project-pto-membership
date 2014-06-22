@@ -10,6 +10,7 @@ from .views import (
     ContactCreateView,
     ContactDeleteView,
     ContactUpdateView,
+    SchoolYearList,
     StudentsView,
     StudentCreateView,
     StudentDeleteView,
@@ -30,6 +31,8 @@ urlpatterns = patterns(
     url(r"^students/(?P<pk>\d+)/delete/$", StudentDeleteView.as_view(), name="student_delete"),
     url(r"^students/(?P<pk>\d+)/edit/$", StudentUpdateView.as_view(), name="student_edit"),
     url(r"^students/add/$", StudentCreateView.as_view(), name="student_add"),
+    url(r"^memberships/$", SchoolYearList.as_view(), name="memberships"),
+    url(r"^memberships/(?P<pk>\d+)/charge/$", "pto.views.charge", name="memberships_charge")
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

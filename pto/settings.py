@@ -187,3 +187,6 @@ AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
     "django.contrib.auth.backends.ModelBackend"
 ]
+
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_RYUQkb5yyK51etmcaPQSEgAL")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_O4J4V1hQSFdbWaOBpm7sA6J4")
