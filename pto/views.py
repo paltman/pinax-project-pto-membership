@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import DeleteView, CreateView, ListView, UpdateView
 
 from account.mixins import LoginRequiredMixin
 
@@ -63,6 +63,26 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
 
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
     form_class = StudentForm
+    model = Student
+
+    def get_queryset(self):
+        return self.request.user.family.students.all().order_by("pk")
+
+    def get_success_url(self):
+        return reverse("students")
+
+
+class ContactDeleteView(LoginRequiredMixin, DeleteView):
+    model = Contact
+
+    def get_queryset(self):
+        return self.request.user.family.contacts.all().order_by("pk")
+
+    def get_success_url(self):
+        return reverse("contacts")
+
+
+class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student
 
     def get_queryset(self):
