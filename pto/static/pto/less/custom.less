@@ -4,7 +4,7 @@ body {
 
 body.account,
 body.pto {
-    padding-top: 71px;
+    padding-top: 85px;
 }
 
 h2.legend {
@@ -38,5 +38,43 @@ body.membership-memberships .membership-memberships {
 .contact-form {
     label {
         display: none;
+    }
+}
+
+.account-nav {
+    .nav;
+    .pull-left;
+    > li {
+        float: left;
+        > a {
+            cursor: pointer;
+            color: @navbar-default-color;
+            &:hover,
+            &:focus {
+                color: #FFF;
+                background-color: transparent;
+            }
+        }
+        + li {
+            margin-left: 2px;
+        }
+        &.open > a {
+            background-color: transparent;
+            &:hover,
+            &:focus {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.account-nav {
+    margin-top: 9px;
+}
+
+@media (min-width: 767px) {
+    .account-nav {
+        .pull-right;
+        margin-right: -10px;
     }
 }
