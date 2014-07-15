@@ -1,6 +1,6 @@
 {% extends "site_base.html" %}
 
-{% block head_title %}DCA PTO Membership{% endblock %}
+{% block head_title %}{{ project_name }} Membership{% endblock %}
 
 {% block body_class %}home{% endblock %}
 
@@ -8,10 +8,10 @@
 <div class="jumbotron">
     <h1>Welcome</h1>
     <p>
-        This site enables you to signup for the <b>DCA PTO</b> and manage your
+        This site enables you to signup for the <b>{{ project_name }}</b> and manage your
         contact and student information, as well as purchase your annual membership.
     </p>
-    <h2>About the DCA PTO</h2>
+    <h2>About the {{ project_name }}</h2>
     <p>
         The <a href="http://www.dcapto.com/">Donelson Christian Academy Parent Teacher Organization (DCA PTO)</a>
         exists as a subsidiary of DCA. The DCA PTO supports the academic, social,

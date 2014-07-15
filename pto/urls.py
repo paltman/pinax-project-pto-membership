@@ -1,7 +1,6 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
 
 from django.contrib import admin
 
@@ -20,7 +19,7 @@ from .views import (
 
 urlpatterns = patterns(
     "",
-    url(r"^$", "pto.views.home", name="home"),
+    url(r"^$", "{{ project_name }}.views.home", name="home"),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
     url(r"^contacts/$", ContactsView.as_view(), name="contacts"),
@@ -32,7 +31,7 @@ urlpatterns = patterns(
     url(r"^students/(?P<pk>\d+)/edit/$", StudentUpdateView.as_view(), name="student_edit"),
     url(r"^students/add/$", StudentCreateView.as_view(), name="student_add"),
     url(r"^memberships/$", SchoolYearList.as_view(), name="memberships"),
-    url(r"^memberships/(?P<pk>\d+)/charge/$", "pto.views.charge", name="memberships_charge")
+    url(r"^memberships/(?P<pk>\d+)/charge/$", "{{ project_name }}.views.charge", name="memberships_charge")
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

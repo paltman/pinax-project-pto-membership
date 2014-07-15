@@ -4,7 +4,7 @@
         "model": "sites.site", 
         "fields": {
             "domain": "localhost:8000", 
-            "name": "DCA PTO Membership [localhost]"
+            "name": "{{ project_name }} Membership [localhost]"
         }
     },
     {
@@ -12,7 +12,7 @@
         "model": "sites.site", 
         "fields": {
             "domain": "example.com", 
-            "name": "DCA PTO Membership"
+            "name": "{{ project_name }} Membership"
         }
     },
     {

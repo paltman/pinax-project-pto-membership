@@ -108,10 +108,10 @@ MIDDLEWARE_CLASSES = [
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
-ROOT_URLCONF = "pto.urls"
+ROOT_URLCONF = "{{ project_name }}.urls"
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = "pto.wsgi.application"
+WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
 
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
@@ -136,7 +136,7 @@ INSTALLED_APPS = [
     "metron",
 
     # project
-    "pto",
+    "{{ project_name }}",
 ]
 
 # A sample logging configuration. The only tangible logging

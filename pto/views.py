@@ -122,10 +122,10 @@ def charge(request, pk):
                     "user_id": request.user.pk
                 },
                 card=token,
-                description="DCA PTO Membership for the {0} school year.".format(school_year.year)
+                description="{{ project_name }} Membership for the {0} school year.".format(school_year.year)
             )
             school_year.memberships.create(family=request.user.family, charge_id=charge_response["id"])
-            messages.info(request, "Successfully charged card. Thanks for supporting the DCA PTO!")
+            messages.info(request, "Successfully charged card. Thanks for supporting the {{ project_name }}!")
         except stripe.CardError as e:
             messages.error(request, "There was an error with your card: {0}".format(e))
     return redirect("memberships")
