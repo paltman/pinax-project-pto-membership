@@ -8,14 +8,14 @@
 <div class="panel panel-default">
     <div class="panel-heading"><strong>{% trans "Membership" %}</strong></div>
     <div class="list-group">
+        <a class="list-group-item membership-memberships" href="{% url "memberships" %}">
+            {% trans "Memberships" %}
+        </a>
         <a class="list-group-item membership-students" href="{% url "students" %}">
             {% trans "Students" %}
         </a>
         <a class="list-group-item membership-contacts" href="{% url "contacts" %}">
             {% trans "Contacts" %}
-        </a>
-        <a class="list-group-item membership-memberships" href="{% url "memberships" %}">
-            {% trans "Memberships" %}
         </a>
     </div>
 </div>
