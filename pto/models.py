@@ -115,7 +115,7 @@ class Student(models.Model):
 
     family = models.ForeignKey(Family, related_name="students")
     grade = models.ForeignKey(Grade, related_name="students")
-    teacher = models.ForeignKey(Teacher, related_name="students")
+    teacher = models.ForeignKey(Teacher, related_name="students", null=True, blank=True)
     first_name = models.CharField(max_length=75)
     last_name = models.CharField(max_length=75)
 

@@ -17,6 +17,14 @@
             <form class="form student-form" method="POST" action="{{ post_url }}">
                 {% csrf_token %}
                 <legend>{% if object %}Edit Student{% else %}Add Student{% endif %}</legend>
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <a class="close" data-dismiss="alert">&times;</a>
+                        {% for non_field_error in form.non_field_errors %}
+                             {{ non_field_error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="row">
                     <div class="col-md-6">
                         {{ form.first_name|bootstrap }}

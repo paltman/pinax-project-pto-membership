@@ -39,6 +39,12 @@ class ContactForm(forms.ModelForm):
 
 class StudentForm(forms.ModelForm):
 
+    def clean(self):
+        data = self.cleaned_data
+        if data["grade"].grade in ["PK", "K5", "1", "2", "3", "4", "5"] and data["teacher"] is None:
+            raise forms.ValidationError("You must select a teacher for 5th grade and below.")
+        return data
+
     class Meta:
         model = Student
         fields = [
