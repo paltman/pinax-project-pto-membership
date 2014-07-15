@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.views.decorators.http import require_POST
 from django.views.generic import DeleteView, CreateView, ListView, UpdateView
 
@@ -13,6 +13,12 @@ from account.mixins import LoginRequiredMixin
 
 from .forms import ContactForm, StudentForm
 from .models import Contact, SchoolYear, Student
+
+
+def home(request):
+    if request.user.is_authenticated():
+        return redirect("memberships")
+    return render(request, "homepage.html", {})
 
 
 class ContactsView(LoginRequiredMixin, ListView):

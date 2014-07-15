@@ -20,7 +20,7 @@ from .views import (
 
 urlpatterns = patterns(
     "",
-    url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
+    url(r"^$", "pto.views.home", name="home"),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
     url(r"^contacts/$", ContactsView.as_view(), name="contacts"),
