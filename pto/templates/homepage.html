@@ -5,5 +5,21 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
-
+<div class="jumbotron">
+    <h1>Welcome</h1>
+    <p>
+        This site enables you to signup for the <b>DCA PTO</b> and manage your
+        contact and student information, as well as purchase your annual membership.
+    </p>
+    <h2>About the DCA PTO</h2>
+    <p>
+        The <a href="http://www.dcapto.com/">Donelson Christian Academy Parent Teacher Organization (DCA PTO)</a>
+        exists as a subsidiary of DCA. The DCA PTO supports the academic, social,
+        and spiritual needs of <a href="http://dcawildcats.org">DCA</a>.
+    </p>
+    <p>
+        You can <a class="btn btn-default btn-sm" href="{% url "account_login" %}">Login</a> or <a class="btn btn-primary btn-sm" href="{% url "account_signup" %}">Signup</a>
+        to start using the site.
+    </p>
+</div>
 {% endblock %}
